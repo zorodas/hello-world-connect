@@ -44,6 +44,7 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '@/lib/utils';
+import { Analytics } from '@vercel/analytics/react';
 import { useAccount, useChainId, useSwitchChain, useBalance } from 'wagmi';
 import { ConnectButton, useConnectModal } from '@rainbow-me/rainbowkit';
 import { formatEther, parseEther, formatUnits, parseUnits } from 'ethers';
@@ -4965,6 +4966,7 @@ export default function App() {
       <NotificationsPanel open={notifOpen} onClose={() => setNotifOpen(false)} wallet={walletAddr} />
       <FaucetModal open={faucetModalOpen} onClose={() => setFaucetModalOpen(false)} wallet={walletAddr} />
       <SuccessCard />
+      <Analytics />
     </div>
   );
 }
