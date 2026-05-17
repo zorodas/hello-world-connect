@@ -53,6 +53,7 @@ import BridgeCard from './components/ui/bridge-card';
 import { AnimatedNavFramer } from './components/ui/navigation-menu';
 import { litvmChain, errMsg, LITDEX_DEPLOYER_ADDRESS, readTotalDeployed, deployTokenLitDeX, shortAddr, readDeployments, readDeployFee, readLegacyDeployFee, deployTokenLegacy, getLegacyTokenInfo, getLegacyTokensByCreator, getLegacyTotalDeployedDisplay, readPoints, readCheckinInfo, readCurrentDay, checkinToday, claimNFTRewardsByType, claimNFTRewards, readUserNFTs, readNFTPendingByType, readNFTCurrentDay, readNFTTotalMinted, readNFTAvailablePoints, syncUserPoints, mintRewardNFT } from './lib/litdex-core-logic';
 import { showSuccess, showError, showInfo, refreshPoints } from './lib/feedback';
+import { Analytics } from '@vercel/analytics/react';
 
 // --- Types ---
 type PageID = 'swap' | 'pool' | 'deploy' | 'points' | 'checkin' | 'nfts' | 'messenger' | 'quests' | 'games' | 'faucet';
@@ -4965,6 +4966,7 @@ export default function App() {
       <NotificationsPanel open={notifOpen} onClose={() => setNotifOpen(false)} wallet={walletAddr} />
       <FaucetModal open={faucetModalOpen} onClose={() => setFaucetModalOpen(false)} wallet={walletAddr} />
       <SuccessCard />
+      <Analytics />
     </div>
   );
 }
